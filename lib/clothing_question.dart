@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ClothinQuestion extends StatelessWidget {
-
   String _question;
   ClothinQuestion(this._question);
 
@@ -13,7 +12,7 @@ class ClothinQuestion extends StatelessWidget {
       child: Text(
         _question,
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.blue, fontSize: 20),
+        style: TextStyle(color: Colors.blue, fontSize: 30),
       ),
     );
   }

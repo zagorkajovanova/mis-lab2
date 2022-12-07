@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import './clothing_question.dart';
 import 'clothing_answer.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState(){
+  State<StatefulWidget> createState() {
     return _MyAppState();
   }
 }
 
-class _MyAppState extends State<MyApp>{
-
+class _MyAppState extends State<MyApp> {
   var questions = [
     {
       'question': 'Select type of top:',
@@ -38,19 +37,17 @@ class _MyAppState extends State<MyApp>{
     }
   ];
 
-  void _clicked(){
+  void _clicked() {
     setState(() {
       //check if the index is valid
-      if(_index+1 < questions.length){
+      if (_index + 1 < questions.length) {
         _index += 1;
-      }
-      else{
+      } else {
         _index = 0;
         print("Thank you for answering!");
       }
     });
     print('Button was clicked!');
-  
   }
 
   var _index = 0;
@@ -60,13 +57,12 @@ class _MyAppState extends State<MyApp>{
     return MaterialApp(
       title: "Lab2 App",
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Lab2 Application")
-        ),
+        appBar: AppBar(title: Text("Lab2 Application")),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ClothinQuestion(questions[_index]['question'] as String),
-            ...(questions[_index]['answer'] as List<String>).map((_answer){
+            ...(questions[_index]['answer'] as List<String>).map((_answer) {
               return ClothingAnswer(_answer, _clicked);
             })
           ],
